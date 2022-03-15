@@ -9,5 +9,9 @@ public class Main {
         int sixDivTwo = six / 2;
         int fiveMinusTwo = five - 2;
         int fourTimeTwo = four * 2;
+
+        System.out.println(sixDivTwo);
+        System.out.println(fiveMinusTwo);
+        System.out.println(fourTimeTwo);
     }
 }
