@@ -14,7 +14,15 @@ public class CounterTest {
         int expected = 18;
         int result = Counter.sumByEven(start, finish);
         Assert.assertEquals(expected, result);
+    }
 
+    @Test
+    public void testSumEvenNumbers() {
+        int start = -3;
+        int finish = 12;
+        int expected = 40;
+        int result = Counter.sumByEven(start, finish);
+        Assert.assertEquals(expected, result);
     }
 
 }
