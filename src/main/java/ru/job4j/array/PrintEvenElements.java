@@ -1,6 +1,6 @@
 package ru.job4j.array;
 
-public class ReverseLoopForArray {
+public class PrintEvenElements {
     public static String printEvenInds(int[] numbers) {
         String ln = System.lineSeparator();
         String res = "Элементы массива с чётными индексами, начиная с последнего: " + ln;
