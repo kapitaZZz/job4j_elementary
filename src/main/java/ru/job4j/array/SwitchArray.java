@@ -6,6 +6,7 @@ public class SwitchArray {
         array[dest] = array[source];
         array[source] = temp;
         return array;
+
     }
 
     public static int[] swapBorder(int[] array) {
