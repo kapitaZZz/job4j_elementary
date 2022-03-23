@@ -8,7 +8,7 @@ public class ShopDrop {
             if (pr == null) {
                 products[i] = products[i + 1];
             }
-        }
+        } // после цикла такая строка
         products[products.length - 1] = null;
         return products;
     }
