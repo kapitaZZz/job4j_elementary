@@ -3,8 +3,9 @@ package ru.job4j.inheritance;
 public class Dentist extends Doctor {
     private int teethCount;
 
-    public Dentist(String name, String surname, String education, String birthday, boolean isLicense) {
+    public Dentist(String name, String surname, String education, String birthday, boolean isLicense, int teethCount) {
         super(name, surname, education, birthday, isLicense);
+        this.teethCount = teethCount;
     }
 
     public int takeNewTeeth(Patient patient, boolean patientPowerless) {
