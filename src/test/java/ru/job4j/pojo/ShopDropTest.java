@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 public class ShopDropTest {
+
     @Test
     public void whenDropFirst() {
         Product[] products = new Product[2];
@@ -26,7 +27,7 @@ public class ShopDropTest {
         assertThat(rsl[0].getName(), is("Milk"));
         assertThat(rsl[1], is(nullValue()));
     }
-    
+
     @Test
     public void whenArrayLengthIs4AndDeleteElementWithIndex1() {
         Product[] products = new Product[4];
