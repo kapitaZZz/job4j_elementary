@@ -25,7 +25,7 @@ public class Library {
 
         for (int i = 0; i < books.length; i++) {
             Book b = books[i];
-            if (b.getName().equals("Clean Code")) {
+            if ("Clean Code".equals(b.getName())) {
                 System.out.println(b.getName() + " - " + b.getSheets());
             }
         }
