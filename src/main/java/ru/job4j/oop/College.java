@@ -5,6 +5,5 @@ public class College {
         Student student = new Student();
         Student freshman = new Freshman();
         Object obj = new Freshman();
-        // up casting
     }
 }
