@@ -2,6 +2,9 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * DO аккаунта для привзяки к нему пользователя в системе
+ */
 public class Account {
     private String requisite;
     private double balance;

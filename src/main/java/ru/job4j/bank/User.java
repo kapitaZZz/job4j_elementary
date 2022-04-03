@@ -2,6 +2,9 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * DO пользователя для работы с ним в системе
+ */
 public class User {
     private String passport;
     private String username;

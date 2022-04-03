@@ -6,20 +6,25 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ *  Сервис по работе со счетом пользователя
  */
 public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
     /**
-     * 
-     * @param user
+     * Добавляет пользователя в систему если его еще нет
+     * @param user пользователь на добавление
      */
     public void addUser(User user) {
         List<Account> accounts = new ArrayList<>();
         users.putIfAbsent(user, accounts);
     }
 
+    /**
+     * Создание аккаунта пользователю, если такого еще не существует
+     * @param passport номер паспорта - ключ, по которому будет создан аккаунт
+     * @param account аккаунт пользователя в системе
+     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -30,6 +35,11 @@ public class BankService {
         }
     }
 
+    /**
+     * Поиск пользователя по ключу - паспорту
+     * @param passport номер паспорта для поиска
+     * @return пользователь в системе, если такой существует
+     */
     public User findByPassport(String passport) {
         for (User user : users.keySet()) {
             if (passport.equals(user.getPassport())) {
@@ -39,6 +49,12 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Поиск пользователя и его аккаунта по реквизитам
+     * @param passport номер паспорта - ключ
+     * @param requisite реквизиты для поиска Аккаунта пользователя
+     * @return аккаунт пользователя в системе
+     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -51,6 +67,15 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Операция перевода денег между счетами
+     * @param srcPassport номер паспорта(ключ) счета с которого будет перевод
+     * @param srcRequisite реквизиты аккаунта с которого будет списание
+     * @param destPassport номер паспорта(ключ) счета на который будет перевод
+     * @param destRequisite реквизиты аккаунта на который будет зачисление
+     * @param amount сумма перевода
+     * @return TRUE если перевод выполнен / FALSE если перевод не выполнен
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
