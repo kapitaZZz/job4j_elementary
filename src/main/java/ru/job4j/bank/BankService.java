@@ -5,9 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *
+ */
 public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * 
+     * @param user
+     */
     public void addUser(User user) {
         List<Account> accounts = new ArrayList<>();
         users.putIfAbsent(user, accounts);
@@ -15,9 +22,11 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        List<Account> ac = users.get(user);
-        if (!ac.contains(account)) {
-            ac.add(account);
+        if (user != null) {
+            List<Account> ac = users.get(user);
+            if (!ac.contains(account)) {
+                ac.add(account);
+            }
         }
     }
 
@@ -47,7 +56,7 @@ public class BankService {
         boolean rsl = false;
         Account src = findByRequisite(srcPassport, srcRequisite);
         Account dest = findByRequisite(destPassport, destRequisite);
-        if (src != null && dest != null && src.getBalance() >= 0) {
+        if (src != null && dest != null && src.getBalance() >= amount) {
             src.setBalance(src.getBalance() - amount);
             dest.setBalance(dest.getBalance() + amount);
             rsl = true;
