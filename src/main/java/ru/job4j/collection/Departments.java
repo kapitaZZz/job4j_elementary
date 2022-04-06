@@ -22,8 +22,8 @@ public class Departments {
                 } else {
                     parseString +=  "/" + str;
                 }
+                tmp.add(parseString);
             }
-            tmp.add(parseString);
         }
         return new ArrayList<>(tmp);
     }
