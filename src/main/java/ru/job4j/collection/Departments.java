@@ -17,10 +17,10 @@ public class Departments {
         for (String value : deps) {
             String parseString = "";
             for (String str : value.split("/")) {
-                if (parseString.equals("")) {
+                if ("".equals(parseString)) {
                     parseString = str;
                 } else {
-                    tmp.add(parseString + "/" + str);
+                    parseString +=  "/" + str;
                 }
             }
             tmp.add(parseString);
