@@ -9,3 +9,4 @@ public class Profiles {
         return profiles.stream().map(Profile::getAddress).collect(Collectors.toList());
     }
 }
+
