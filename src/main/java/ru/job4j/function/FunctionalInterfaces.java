@@ -25,10 +25,8 @@ public class FunctionalInterfaces {
                 System.out.println("key: " + i + " value: " + map.get(i));
             }
         }
-
         Supplier<List<String>> sup = () -> new ArrayList<>(map.values());
         List<String> strings = new ArrayList<>(map.values());
-
         Consumer<String> con = System.out::println;
         Function<String, String> func = String::toUpperCase;
         con.accept(func.apply(sup.get().toString()));
@@ -36,4 +34,5 @@ public class FunctionalInterfaces {
             con.accept(func.apply(s));
         }
     }
+
 }
