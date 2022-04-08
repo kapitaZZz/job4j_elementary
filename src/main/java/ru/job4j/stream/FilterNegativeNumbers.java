@@ -12,3 +12,4 @@ public class FilterNegativeNumbers {
         positive.forEach(System.out::println);
     }
 }
+
