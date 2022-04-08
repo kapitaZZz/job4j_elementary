@@ -15,5 +15,4 @@ public class SearchFolder {
         }
         return res;
     }
-
 }
