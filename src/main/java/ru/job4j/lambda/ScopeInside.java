@@ -19,3 +19,4 @@ public class ScopeInside {
         return calc.get();
     }
 }
+
