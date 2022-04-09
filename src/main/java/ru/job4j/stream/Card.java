@@ -11,6 +11,14 @@ public class Card {
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return "Card{"
+                + "suit=" + suit
+                + ", value=" + value
+                + '}';
+    }
+
     public enum Suit {
         Diamonds, Hearts, Spades, Clubs
     }
@@ -21,7 +29,7 @@ public class Card {
 
     public static void main(String[] args) {
         Stream.of(Suit.values())
-                .flatMap(suit -> Stream.of(Value.values()).map(c -> suit + " " + c))
+                .flatMap(suit -> Stream.of(Value.values()).map(c -> new Card(suit, c)))
                 .forEach(System.out::println);
 
     }
