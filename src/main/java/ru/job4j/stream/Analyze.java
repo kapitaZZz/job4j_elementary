@@ -1,5 +1,6 @@
 package ru.job4j.stream;
 
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,7 +45,7 @@ public class Analyze {
                             .mapToInt(Subject::getScore)
                             .sum());
                 })
-                .max((i1, i2) -> Double.compare(i1.getScore(), i2.getScore()))
+                .max(Comparator.comparingDouble(Tuple::getScore))
                 .orElse(new Tuple("Empty", 0D));
     }
 
@@ -55,7 +56,7 @@ public class Analyze {
                         Collectors.summingDouble(Subject::getScore)))
                 .entrySet().stream()
                 .map(entry -> new Tuple(entry.getKey(), entry.getValue()))
-                .max((i1, i2) -> Double.compare(i1.getScore(), i2.getScore()))
+                .max(Comparator.comparingDouble(Tuple::getScore))
                 .orElse(new Tuple("Empty", 0D));
     }
 }
