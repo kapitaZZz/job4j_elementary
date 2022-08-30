@@ -22,25 +22,19 @@ public class PasswordValidator {
             return "Неверная длина пароля, должен быть длиной от 8 до 32 символов.";
         }
         char[] chars = password.toCharArray();
-        for (char c : chars) {
-            if (!Character.isLetter(c) && !Character.isDigit(c)) {
-                return "Один из сиволов пароля - спецсимвол.";
-            }
+        String low = password.toLowerCase();
+        String up = password.toUpperCase();
+        if (low.equals(password)) {
+            return "Пароль не содержит символов в верхнем регистре.";
+        }
+        if (up.equals(password)) {
+            return "Пароль не содержит символов в нижнем регистре.";
         }
         for (char c : chars) {
-            if (Character.isDigit(c)) {
-                return "Один из символов пароля - цифра.";
+            if (Character.isLetterOrDigit(c)) {
+                continue;
             }
-        }
-        for (char c : chars) {
-            if (Character.isLowerCase(c)) {
-                return "Один из символов пароля - строчная буква.";
-            }
-        }
-        for (char c : chars) {
-            if (Character.isUpperCase(c)) {
-                return "Один из символов пароля - заглавная буква.";
-            }
+            return "Не содержит спецсимволы.";
         }
         return password;
     }

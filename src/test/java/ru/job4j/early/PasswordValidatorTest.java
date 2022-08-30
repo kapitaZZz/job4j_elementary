@@ -33,41 +33,28 @@ public class PasswordValidatorTest {
     }
 
     @Test()
-    public void testIfPasswordContainsUpperCase() {
-        String password = "asDfgasdasda";
-        char[] chars = password.toCharArray();
-        assertEquals(PasswordValidator.validate(password), "Один из символов пароля - заглавная буква.");
-        assertTrue(Character.isUpperCase(chars[2]));
-    }
-
-    @Test()
-    public void testIfPasswordContainsLowerCase() {
-        String password = "ASDfGGHVSDHBFSAAS";
-        char[] chars = password.toCharArray();
-        assertEquals(PasswordValidator.validate(password), "Один из символов пароля - строчная буква.");
-        assertTrue(Character.isUpperCase(chars[2]));
-    }
-
-    @Test()
-    public void testIfPasswordContainsNumber() {
-        String password = "AS2DfGGHVSDHBFSAAS";
-        char[] chars = password.toCharArray();
-        assertEquals(PasswordValidator.validate(password), "Один из символов пароля - цифра.");
-        assertTrue(Character.isDigit(chars[2]));
-    }
-
-    @Test()
-    public void testIfPasswordContainsSpecialChar() {
-        String password = "AS@DfGGHVSDHBFSAAS";
-        char[] chars = password.toCharArray();
-        assertEquals(PasswordValidator.validate(password), "Один из сиволов пароля - спецсимвол.");
-    }
-
-    @Test()
     public void testIfPasswordInBase() {
         List<String> words = new ArrayList<>(Arrays.asList("qwerty", "12345", "password", "admin", "user"));
         String password = "PASSword";
         assertEquals(PasswordValidator.validate(password), "Введен пароль есть базе - " + password);
         assertTrue(words.contains(password.toLowerCase()));
+    }
+
+    @Test()
+    public void testIfPasswordUpperCase() {
+        String password = "QWERT@@YUIOPSDFGHJKL";
+        assertEquals(PasswordValidator.validate(password), "Пароль не содержит символов в нижнем регистре.");
+    }
+
+    @Test()
+    public void testIfPasswordLowerCase() {
+        String password = "wertyh@!juksvbasdmada";
+        assertEquals(PasswordValidator.validate(password), "Пароль не содержит символов в верхнем регистре.");
+    }
+
+    @Test()
+    public void testIfPasswordNotContainsSpecial() {
+        String password = "wertyFDGHJ@#$NMksvbasdmada";
+        assertEquals(PasswordValidator.validate(password), "Не содержит спецсимволы.");
     }
 }
